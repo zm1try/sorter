@@ -26,25 +26,21 @@ class Sorter {
     for(let i = 0; i<this.indices.length;i++) {
       for(let j = i; j<this.indices.length-i;j++) {
         if (this.indices[j]>this.indices[j+1]) {
-          temp = this.indices[j+1];
+          this.temp = this.indices[j+1];
           this.indices[j+1] = this.indices[i];
-          this.indices[j] = temp;
+          this.indices[j] = this.temp;
         }
       }
     }
-    
     for(let i = 0; i<this.indices.length;i++) {
-      for(let j = 0; j<this.indices.length;j++) {
+      for(let j = 0; j<this.indices.length-1;j++) {
         if (this.comparator(this.data[this.indices[j]],this.data[this.indices[j+1]])>0) {
-          console.log(this.comparator(this.data[this.indices[j]],this.data[this.indices[j+1]]));
-          temp = this.data[this.indices[j]+1];
+          this.temp = this.data[this.indices[j+1]];
           this.data[this.indices[j+1]] = this.data[this.indices[j]];
-          this.data[this.indices[j]] = temp;
+          this.data[this.indices[j]] = this.temp;
         }
       }
     }
-    
-
   }
 
   setComparator(compareFunction) {

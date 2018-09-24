@@ -9,15 +9,18 @@ class Sorter {
   }
 
   at(index) {
-    return this.data[index];
+    let elem = this.data[index];
+    return elem;
   }
 
   get length() {
-    return this.data.length;
+    let l = this.data.length;
+    return l;
   }
 
   toArray() {
-    return this.data;
+    let arr = JSON.stringify(this.data);
+    return JSON.parse(arr);
   }
 
   sort(indices) {
